@@ -1,0 +1,54 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="CSS/style.css">
+            <title>My todo stuff</title>
+        </head>
+        <body>
+          <div class="container">
+              <div class="banner">
+                <h2> My To-do   <img src="./images/to-do-list.png"alt></h2>
+                <div class="row">
+                    <input type="text" placeholder="To-do here" class="js-input-btn" required>
+                <button onclick="addTodo();">Add</button>
+                </div>
+                <ul class="todo-list">
+                </ul>
+              </div>
+            </div>
+
+
+            <script>
+            
+                function addTodo(){
+                const inputElement = document.querySelector('.js-input-btn');
+
+                const toDo = inputElement.value;
+
+                const list = document.querySelector('.todo-list');
+
+
+                if (toDo.trim() === ''){
+                    alert('Please enter a valid text');
+                    }else{
+                    let listItems = document.createElement('li');
+                    listItems.innerText = toDo;
+                    list.appendChild(listItems);
+                    let span=document.createElement('span');
+                    span.innerText= "\u00d7";
+                    listItems.appendChild(span);
+                }   
+                inputElement.value = '';
+                }
+
+                    const inputElement = document.querySelector('.js-input-btn');
+                        inputElement.addEventListener('keydown', function(event) {
+                            if (event.key === 'Enter') {
+                                  addTodo();
+                                }
+                            }); 
+            </script>
+        </body>
+        </html>
